@@ -1,0 +1,1263 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+<title>Prime Cut | Premium Barbershop & Salon – Enugu's Finest</title>
+<meta name="description" content="Prime Cut – Enugu's premier barbershop and salon. Expert cuts for men, women & kids. Modern grooming, classic fades, braiding, and luxury treatments. Book online at 1 Day Street, Enugu.">
+<meta name="keywords" content="barbershop Enugu, barbing salon Enugu, best barber Enugu, men haircut Enugu, Prime Cut salon, kids haircut Enugu, beard styling Enugu, fade haircut Enugu, women hair salon Enugu, 1 Day Street Enugu">
+<meta name="author" content="Prime Cut Barbershop & Salon">
+<meta name="robots" content="index, follow">
+<meta name="theme-color" content="#C9A84C">
+<link rel="canonical" href="https://www.primecutsalon.com/">
+
+<!-- Open Graph / Social -->
+<meta property="og:type" content="website">
+<meta property="og:title" content="Prime Cut | Premium Barbershop & Salon – Enugu">
+<meta property="og:description" content="Enugu's most trusted barbershop. Expert cuts for men, women & kids. Book your appointment at 1 Day Street, Enugu.">
+<meta property="og:image" content="https://images.unsplash.com/photo-1585747860715-2ba37e788b70?w=1200&q=80">
+<meta property="og:url" content="https://www.primecutsalon.com/">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Prime Cut | Premium Barbershop & Salon – Enugu">
+<meta name="twitter:description" content="Premium haircuts & grooming for men, women & kids in Enugu. Book online now!">
+
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background: #0A0A0A;
+    color: #FFFFFF;
+    overflow-x: hidden;
+}
+
+:root {
+    --gold: #C9A84C;
+    --gold-light: #F0D080;
+    --gold-dark: #B88D2E;
+    --dark: #0A0A0A;
+    --dark2: #111111;
+    --dark3: #1A1A1A;
+    --dark4: #222222;
+    --white: #FFFFFF;
+    --gray: #AAAAAA;
+    --gray2: #777777;
+    --red: #E63946;
+    --green: #2DC653;
+    --blue: #4A90E2;
+    --purple: #9B59B6;
+}
+
+::-webkit-scrollbar { width: 8px; }
+::-webkit-scrollbar-track { background: #111; }
+::-webkit-scrollbar-thumb { background: var(--gold); border-radius: 4px; }
+::-webkit-scrollbar-thumb:hover { background: var(--gold-light); }
+
+/* ── Loader ── */
+#loader {
+    position: fixed;
+    inset: 0;
+    background: var(--dark);
+    z-index: 9999;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: opacity 0.5s, visibility 0.5s;
+}
+.loader-content { text-align: center; }
+.loader-scissors {
+    font-size: 60px;
+    color: var(--gold);
+    animation: spin 1s linear infinite;
+}
+.loader-text {
+    margin-top: 20px;
+    font-size: 12px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--gold);
+}
+@keyframes spin {
+    from { transform: rotate(0deg); }
+    to   { transform: rotate(360deg); }
+}
+
+/* ── Navbar ── */
+nav {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+    padding: 16px 5%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: rgba(10, 10, 10, 0.95);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid rgba(201, 168, 76, 0.15);
+    transition: all 0.3s;
+}
+nav.scrolled {
+    padding: 10px 5%;
+    background: rgba(10, 10, 10, 0.98);
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.5);
+}
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    text-decoration: none;
+    cursor: pointer;
+}
+.logo-icon {
+    width: 44px;
+    height: 44px;
+    background: linear-gradient(135deg, var(--gold), var(--gold-light));
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 20px;
+    color: var(--dark);
+    transition: transform 0.3s;
+    flex-shrink: 0;
+}
+.logo:hover .logo-icon { transform: rotate(10deg); }
+.logo-text {
+    font-family: 'Playfair Display', serif;
+    font-size: 20px;
+    font-weight: 700;
+    color: white;
+    line-height: 1.1;
+}
+.logo-text span {
+    color: var(--gold);
+    display: block;
+    font-size: 11px;
+    letter-spacing: 2px;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 400;
+}
+.nav-links {
+    display: flex;
+    gap: 28px;
+    list-style: none;
+}
+.nav-links a {
+    color: var(--gray);
+    text-decoration: none;
+    font-size: 13px;
+    font-weight: 500;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    transition: color 0.3s;
+    position: relative;
+}
+.nav-links a::after {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: var(--gold);
+    transition: width 0.3s;
+}
+.nav-links a:hover::after,
+.nav-links a.active::after { width: 100%; }
+.nav-links a:hover { color: var(--gold); }
+.nav-cta {
+    background: linear-gradient(135deg, var(--gold), var(--gold-light));
+    color: var(--dark) !important;
+    padding: 10px 22px;
+    border-radius: 25px;
+    font-weight: 600 !important;
+}
+.nav-cta::after { display: none; }
+.hamburger {
+    display: none;
+    flex-direction: column;
+    gap: 5px;
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+.hamburger span {
+    width: 24px;
+    height: 2px;
+    background: var(--gold);
+    border-radius: 2px;
+    transition: 0.3s;
+}
+.mobile-menu {
+    position: fixed;
+    inset: 0;
+    background: rgba(10, 10, 10, 0.98);
+    backdrop-filter: blur(20px);
+    z-index: 998;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 26px;
+    transform: translateX(-100%);
+    transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.mobile-menu.open { transform: translateX(0); }
+.mobile-menu a {
+    color: white;
+    font-size: 22px;
+    font-weight: 600;
+    text-decoration: none;
+    font-family: 'Playfair Display', serif;
+    transition: color 0.3s;
+}
+.mobile-menu a:hover { color: var(--gold); }
+
+/* ── Hero Carousel ── */
+.hero-carousel {
+    min-height: 100vh;
+    position: relative;
+    overflow: hidden;
+}
+.carousel-slides {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+}
+.slide {
+    position: absolute;
+    inset: 0;
+    opacity: 0;
+    transition: opacity 1s ease-in-out;
+    background-size: cover;
+    background-position: center 30%;
+    filter: brightness(0.4);
+}
+.slide.active { opacity: 1; }
+.hero-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, rgba(0,0,0,0.85) 0%, rgba(0,0,0,0.5) 100%);
+    z-index: 1;
+}
+.hero-content {
+    position: absolute;
+    bottom: 20%;
+    left: 0;
+    right: 0;
+    z-index: 2;
+    padding: 0 5%;
+    max-width: 720px;
+    animation: fadeInUp 1s ease;
+}
+@keyframes fadeInUp {
+    from { opacity: 0; transform: translateY(30px); }
+    to   { opacity: 1; transform: translateY(0); }
+}
+.hero-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: rgba(201, 168, 76, 0.12);
+    border: 1px solid rgba(201, 168, 76, 0.35);
+    padding: 7px 18px;
+    border-radius: 20px;
+    font-size: 12px;
+    color: var(--gold);
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    margin-bottom: 24px;
+    backdrop-filter: blur(5px);
+}
+.hero-title {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(40px, 6vw, 78px);
+    font-weight: 900;
+    line-height: 1.08;
+    margin-bottom: 20px;
+}
+.hero-title span { color: var(--gold); display: block; }
+.hero-desc {
+    font-size: 16px;
+    color: rgba(255, 255, 255, 0.85);
+    line-height: 1.8;
+    max-width: 520px;
+    margin-bottom: 36px;
+}
+.hero-btns { display: flex; gap: 16px; flex-wrap: wrap; }
+.btn-primary {
+    background: linear-gradient(135deg, var(--gold), var(--gold-light));
+    color: var(--dark);
+    padding: 14px 32px;
+    border-radius: 30px;
+    font-weight: 700;
+    font-size: 14px;
+    text-decoration: none;
+    letter-spacing: 1px;
+    transition: all 0.3s;
+    box-shadow: 0 8px 25px rgba(201, 168, 76, 0.3);
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+}
+.btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 12px 30px rgba(201, 168, 76, 0.4);
+}
+.btn-outline {
+    border: 2px solid var(--gold);
+    color: var(--gold);
+    padding: 14px 32px;
+    border-radius: 30px;
+    font-weight: 600;
+    font-size: 14px;
+    text-decoration: none;
+    transition: all 0.3s;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+}
+.btn-outline:hover {
+    background: var(--gold);
+    color: var(--dark);
+    transform: translateY(-2px);
+}
+.carousel-dots {
+    position: absolute;
+    bottom: 30px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 12px;
+    z-index: 3;
+}
+.dot {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.5);
+    cursor: pointer;
+    transition: all 0.3s;
+}
+.dot.active {
+    background: var(--gold);
+    width: 28px;
+    border-radius: 20px;
+}
+
+/* ── Common Section Styles ── */
+section { padding: 90px 5%; position: relative; }
+.section-badge {
+    display: inline-block;
+    background: rgba(201, 168, 76, 0.1);
+    border: 1px solid rgba(201, 168, 76, 0.3);
+    color: var(--gold);
+    font-size: 11px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    padding: 6px 16px;
+    border-radius: 20px;
+    margin-bottom: 14px;
+}
+.section-title {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(28px, 4vw, 48px);
+    font-weight: 700;
+    margin-bottom: 14px;
+}
+.section-title span { color: var(--gold); }
+.divider {
+    width: 60px;
+    height: 3px;
+    background: linear-gradient(90deg, var(--gold), var(--gold-light));
+    border-radius: 2px;
+    margin: 18px 0;
+}
+
+/* ── About ── */
+.about-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 70px;
+    align-items: center;
+}
+.about-img-main {
+    width: 100%;
+    height: 500px;
+    border-radius: 20px;
+    overflow: hidden;
+    border: 1px solid rgba(201, 168, 76, 0.15);
+    position: relative;
+}
+.about-img-main img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s;
+}
+.about-img-main:hover img { transform: scale(1.05); }
+.feature-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 13px;
+    color: var(--gray);
+    padding: 8px 0;
+}
+.feature-item i { color: var(--gold); font-size: 16px; }
+
+/* ── Services ── */
+.services-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 25px;
+}
+.service-card {
+    background: var(--dark3);
+    border: 1px solid rgba(201, 168, 76, 0.1);
+    border-radius: 20px;
+    padding: 28px;
+    transition: all 0.3s;
+    position: relative;
+    overflow: hidden;
+}
+.service-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 3px;
+    background: linear-gradient(90deg, var(--gold), var(--gold-light));
+    transform: translateX(-100%);
+    transition: transform 0.3s;
+}
+.service-card:hover::before { transform: translateX(0); }
+.service-card:hover {
+    transform: translateY(-6px);
+    border-color: rgba(201, 168, 76, 0.3);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+}
+.service-icon { font-size: 42px; margin-bottom: 18px; }
+.service-name { font-size: 20px; font-weight: 600; margin-bottom: 8px; }
+.service-desc { color: var(--gray); margin: 10px 0; font-size: 13px; line-height: 1.5; }
+.service-price {
+    font-family: 'Playfair Display', serif;
+    font-size: 24px;
+    font-weight: 700;
+    color: var(--gold);
+    margin-top: 15px;
+}
+.service-badge {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    background: var(--gold);
+    color: var(--dark);
+    font-size: 10px;
+    padding: 4px 10px;
+    border-radius: 20px;
+    font-weight: 600;
+}
+
+/* ── Gallery ── */
+.gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 14px;
+}
+.gallery-item {
+    border-radius: 16px;
+    overflow: hidden;
+    position: relative;
+    cursor: pointer;
+    aspect-ratio: 1;
+}
+.gallery-item:nth-child(1) { grid-column: span 2; grid-row: span 2; }
+.gallery-item:nth-child(1) .gallery-img { min-height: 380px; }
+.gallery-img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.4s; }
+.gallery-item:hover .gallery-img { transform: scale(1.05); }
+.gallery-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to top, rgba(0,0,0,0.8), transparent);
+    opacity: 0;
+    transition: opacity 0.3s;
+    display: flex;
+    align-items: flex-end;
+    padding: 18px;
+}
+.gallery-item:hover .gallery-overlay { opacity: 1; }
+.gallery-label {
+    color: white;
+    font-weight: 600;
+    font-size: 14px;
+    transform: translateY(20px);
+    transition: transform 0.3s;
+}
+.gallery-item:hover .gallery-label { transform: translateY(0); }
+
+/* ── Testimonials ── */
+.testimonials-slider { position: relative; overflow: hidden; padding: 20px 0; }
+.testimonials-track { display: flex; transition: transform 0.5s ease; }
+.testimonial-card { flex: 0 0 33.333%; padding: 20px; }
+.testimonial-content {
+    background: var(--dark3);
+    border: 1px solid rgba(201, 168, 76, 0.1);
+    border-radius: 20px;
+    padding: 30px;
+    position: relative;
+}
+.testimonial-content i {
+    color: var(--gold);
+    font-size: 30px;
+    opacity: 0.3;
+    position: absolute;
+    top: 20px;
+    right: 20px;
+}
+.testimonial-text { color: var(--gray); line-height: 1.8; margin: 20px 0; font-style: italic; }
+.testimonial-author { display: flex; align-items: center; gap: 12px; }
+.testimonial-author h4 { font-size: 14px; margin-bottom: 4px; }
+.testimonial-author p { font-size: 11px; color: var(--gold); }
+.testimonial-nav { text-align: center; margin-top: 30px; }
+.testimonial-nav button {
+    background: var(--dark3);
+    border: 1px solid var(--gold);
+    color: var(--gold);
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    margin: 0 5px;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+.testimonial-nav button:hover { background: var(--gold); color: var(--dark); }
+
+/* ── Booking ── */
+.booking-wrapper {
+    display: grid;
+    grid-template-columns: 1fr 1.4fr;
+    gap: 60px;
+}
+.booking-form {
+    background: var(--dark3);
+    border: 1px solid rgba(201, 168, 76, 0.15);
+    border-radius: 24px;
+    padding: 34px;
+}
+.form-group { margin-bottom: 18px; }
+.form-group label {
+    display: block;
+    font-size: 12px;
+    font-weight: 600;
+    margin-bottom: 8px;
+    color: var(--gray);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+.form-group input,
+.form-group select,
+.form-group textarea {
+    width: 100%;
+    background: var(--dark4);
+    border: 1px solid rgba(255,255,255,0.08);
+    border-radius: 12px;
+    padding: 13px 15px;
+    color: white;
+    font-family: 'Poppins', sans-serif;
+    font-size: 14px;
+    outline: none;
+    transition: all 0.3s;
+}
+.form-group select option { background: var(--dark4); }
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+    border-color: var(--gold);
+    box-shadow: 0 0 0 3px rgba(201, 168, 76, 0.1);
+}
+.btn-book {
+    background: linear-gradient(135deg, var(--gold), var(--gold-light));
+    color: var(--dark);
+    border: none;
+    padding: 15px;
+    border-radius: 30px;
+    font-weight: 700;
+    font-family: 'Poppins', sans-serif;
+    width: 100%;
+    cursor: pointer;
+    transition: all 0.3s;
+    font-size: 14px;
+    letter-spacing: 1px;
+}
+.btn-book:hover:not(:disabled) {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(201, 168, 76, 0.3);
+}
+.btn-book:disabled { opacity: 0.6; cursor: not-allowed; }
+.booking-perks { margin-top: 30px; }
+.perk {
+    display: flex;
+    gap: 12px;
+    margin-bottom: 16px;
+    padding: 12px;
+    background: var(--dark3);
+    border-radius: 12px;
+    transition: transform 0.3s;
+}
+.perk:hover { transform: translateX(5px); }
+.perk i { color: var(--gold); font-size: 20px; }
+.form-success { text-align: center; padding: 10px 0; }
+
+/* ── Stats ── */
+.stats-section {
+    background: linear-gradient(135deg, var(--dark2), var(--dark3));
+    padding: 60px 5%;
+}
+.stats-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 30px;
+    text-align: center;
+}
+.stat-item { padding: 20px; }
+.stat-number {
+    font-family: 'Playfair Display', serif;
+    font-size: 48px;
+    font-weight: 900;
+    color: var(--gold);
+    margin-bottom: 10px;
+}
+.stat-label { color: var(--gray); font-size: 13px; text-transform: uppercase; letter-spacing: 2px; }
+
+/* ── Newsletter ── */
+.newsletter-section {
+    background: linear-gradient(135deg, rgba(201,168,76,0.1), transparent);
+    padding: 60px 5%;
+    text-align: center;
+}
+.newsletter-form {
+    max-width: 500px;
+    margin: 30px auto 0;
+    display: flex;
+    gap: 10px;
+}
+.newsletter-form input {
+    flex: 1;
+    background: var(--dark3);
+    border: 1px solid rgba(201, 168, 76, 0.2);
+    border-radius: 30px;
+    padding: 14px 20px;
+    color: white;
+    font-family: 'Poppins', sans-serif;
+    font-size: 14px;
+    outline: none;
+}
+.newsletter-form button {
+    background: linear-gradient(135deg, var(--gold), var(--gold-light));
+    border: none;
+    padding: 14px 28px;
+    border-radius: 30px;
+    font-weight: 600;
+    font-family: 'Poppins', sans-serif;
+    cursor: pointer;
+    transition: all 0.3s;
+    color: var(--dark);
+}
+.newsletter-form button:hover { transform: translateY(-2px); }
+
+/* ── Contact ── */
+.contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; }
+.contact-item {
+    display: flex;
+    gap: 15px;
+    margin-bottom: 25px;
+    padding: 15px;
+    background: var(--dark3);
+    border-radius: 15px;
+    transition: transform 0.3s;
+}
+.contact-item:hover { transform: translateX(5px); }
+.contact-item i { color: var(--gold); font-size: 22px; margin-top: 3px; flex-shrink: 0; }
+.msg-form { background: var(--dark3); border-radius: 20px; padding: 28px; }
+
+/* ── Footer ── */
+footer {
+    background: var(--dark);
+    border-top: 1px solid rgba(201, 168, 76, 0.1);
+    padding: 60px 5% 28px;
+}
+.footer-grid {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr 1fr;
+    gap: 40px;
+}
+.social-link {
+    width: 38px;
+    height: 38px;
+    background: rgba(201, 168, 76, 0.1);
+    border-radius: 50%;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--gold);
+    margin-right: 10px;
+    transition: all 0.3s;
+    text-decoration: none;
+}
+.social-link:hover { background: var(--gold); color: var(--dark); transform: translateY(-3px); }
+footer ul { list-style: none; }
+footer ul li { margin-bottom: 10px; }
+footer ul li a { color: var(--gray); text-decoration: none; font-size: 13px; transition: color 0.3s; }
+footer ul li a:hover { color: var(--gold); }
+
+/* ── Toast ── */
+.toast {
+    position: fixed;
+    bottom: 100px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: var(--dark3);
+    border: 1px solid var(--gold);
+    padding: 12px 24px;
+    border-radius: 30px;
+    opacity: 0;
+    transition: 0.3s;
+    z-index: 9999;
+    pointer-events: none;
+    font-size: 14px;
+    white-space: nowrap;
+}
+.toast.show {
+    opacity: 1;
+    transform: translateX(-50%) translateY(-10px);
+}
+
+/* ── Back to Top ── */
+.back-to-top {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    width: 50px;
+    height: 50px;
+    background: var(--gold);
+    color: var(--dark);
+    border: none;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s;
+    z-index: 99;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+}
+.back-to-top.show { opacity: 1; visibility: visible; }
+.back-to-top:hover { transform: translateY(-5px); background: var(--gold-light); }
+
+/* ── Responsive ── */
+@media (max-width: 1024px) {
+    .about-grid, .booking-wrapper, .footer-grid, .contact-grid {
+        grid-template-columns: 1fr;
+    }
+    .gallery-grid { grid-template-columns: repeat(2, 1fr); }
+    .gallery-item:nth-child(1) { grid-column: span 1; grid-row: span 1; }
+    .testimonial-card { flex: 0 0 50%; }
+    .stats-grid { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 768px) {
+    .nav-links, .nav-cta { display: none; }
+    .hamburger { display: flex; }
+    .hero-title { font-size: 42px; }
+    .testimonial-card { flex: 0 0 100%; }
+    .newsletter-form { flex-direction: column; }
+    .stats-grid { grid-template-columns: 1fr; }
+    .toast { white-space: normal; max-width: 90%; text-align: center; }
+}
+</style>
+</head>
+<body>
+
+<!-- ── Page Loader ─────────────────────────── -->
+<div id="loader">
+    <div class="loader-content">
+        <i class="fas fa-cut loader-scissors"></i>
+        <div class="loader-text">Prime Cut</div>
+    </div>
+</div>
+
+<!-- ── Mobile Menu ────────────────────────── -->
+<div class="mobile-menu" id="mobileMenu">
+    <a href="#home"         onclick="closeMobile()">Home</a>
+    <a href="#about"        onclick="closeMobile()">About</a>
+    <a href="#services"     onclick="closeMobile()">Services</a>
+    <a href="#gallery"      onclick="closeMobile()">Gallery</a>
+    <a href="#testimonials" onclick="closeMobile()">Reviews</a>
+    <a href="#booking"      onclick="closeMobile()">Book Now</a>
+    <a href="#contact"      onclick="closeMobile()">Contact</a>
+</div>
+
+<!-- ── Navbar ─────────────────────────────── -->
+<nav id="navbar">
+    <a href="#home" class="logo">
+        <div class="logo-icon"><i class="fas fa-cut"></i></div>
+        <div class="logo-text">Prime Cut<span>Barbershop &amp; Salon · Enugu</span></div>
+    </a>
+    <ul class="nav-links">
+        <li><a href="#about">About</a></li>
+        <li><a href="#services">Services</a></li>
+        <li><a href="#gallery">Gallery</a></li>
+        <li><a href="#testimonials">Reviews</a></li>
+        <li><a href="#booking" class="nav-cta">Book Now</a></li>
+        <li><a href="#contact">Contact</a></li>
+    </ul>
+    <button class="hamburger" id="hamburger" onclick="toggleMobile()" aria-label="Toggle menu">
+        <span></span><span></span><span></span>
+    </button>
+</nav>
+
+<!-- ── Hero Carousel ──────────────────────── -->
+<section id="home" class="hero-carousel">
+    <div class="carousel-slides" id="carouselSlides">
+        <div class="slide active" style="background-image:url('https://images.unsplash.com/photo-1585747860715-2ba37e788b70?w=1600&q=80');"></div>
+        <div class="slide"        style="background-image:url('https://images.unsplash.com/photo-1599351431202-1e0f0137899a?w=1600&q=80');"></div>
+        <div class="slide"        style="background-image:url('https://images.unsplash.com/photo-1621605815971-fbc98d665033?w=1600&q=80');"></div>
+        <div class="slide"        style="background-image:url('https://images.unsplash.com/photo-1567894340315-735d7c361db0?w=1600&q=80');"></div>
+    </div>
+    <div class="hero-overlay"></div>
+    <div class="hero-content">
+        <div class="hero-badge"><i class="fas fa-star"></i> Enugu's Finest Grooming</div>
+        <h1 class="hero-title">Precision &amp;<span>Style Redefined</span></h1>
+        <p class="hero-desc">Welcome to Prime Cut Barbershop &amp; Salon — where modern artistry meets classic barbering. Experience premium cuts, fades, braiding, and grooming for men, women, and kids at 1 Day Street, Enugu.</p>
+        <div class="hero-btns">
+            <a href="#booking" class="btn-primary"><i class="fas fa-calendar-check"></i> Book Appointment</a>
+            <a href="#services" class="btn-outline"><i class="fas fa-scissors"></i> Our Services</a>
+        </div>
+    </div>
+    <div class="carousel-dots" id="carouselDots"></div>
+</section>
+
+<!-- ── About ──────────────────────────────── -->
+<section id="about" style="background:var(--dark2);">
+    <div class="about-grid">
+        <div class="about-img-main">
+            <img src="https://images.unsplash.com/photo-1503951914875-452162b0f3f1?w=700&q=80" alt="Prime Cut Barbershop interior" loading="lazy">
+        </div>
+        <div>
+            <div class="section-badge">Our Legacy</div>
+            <h2 class="section-title">Enugu's Most <span>Trusted</span> Grooming House</h2>
+            <div class="divider"></div>
+            <p style="color:var(--gray);line-height:1.9;margin-bottom:14px;">Prime Cut stands for excellence, culture, and modern style. Located at 1 Day Street, Enugu, we've built a reputation for delivering sharp fades, elegant braids, and premium grooming services that celebrate African hair and individuality.</p>
+            <p style="color:var(--gray);line-height:1.9;margin-bottom:22px;">Our team of certified stylists uses only top-tier tools and products to ensure every cut, shave, and style exceeds expectations. From classic gentlemen's cuts to avant-garde designs, we are Enugu's destination for confidence and class.</p>
+            <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;">
+                <div class="feature-item"><i class="fas fa-check-circle"></i> 15+ Expert Stylists</div>
+                <div class="feature-item"><i class="fas fa-check-circle"></i> Hygienic &amp; Sterile Tools</div>
+                <div class="feature-item"><i class="fas fa-check-circle"></i> Family-Friendly Space</div>
+                <div class="feature-item"><i class="fas fa-check-circle"></i> Walk-ins &amp; Online Booking</div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ── Services ───────────────────────────── -->
+<section id="services">
+    <div style="text-align:center;margin-bottom:55px;">
+        <div class="section-badge">What We Offer</div>
+        <h2 class="section-title">Premium <span>Services</span></h2>
+        <div class="divider" style="margin:18px auto;"></div>
+    </div>
+    <div class="services-grid">
+        <div class="service-card">
+            <div class="service-icon">✂️</div>
+            <div class="service-name">Classic Men's Haircut</div>
+            <div class="service-desc">Precision fade &amp; styling with hot towel finish</div>
+            <div class="service-price">₦2,500</div>
+        </div>
+        <div class="service-card">
+            <div class="service-icon">🪒</div>
+            <div class="service-name">Hot Towel Shave</div>
+            <div class="service-desc">Straight-razor luxury finish with pre-shave oil</div>
+            <div class="service-price">₦1,800</div>
+        </div>
+        <div class="service-card">
+            <div class="service-icon">💈</div>
+            <div class="service-name">Fade + Line Up</div>
+            <div class="service-desc">Skin fade, sharp edge, and design work</div>
+            <div class="service-price">₦3,000</div>
+            <div class="service-badge">Popular</div>
+        </div>
+        <div class="service-card">
+            <div class="service-icon">🧔</div>
+            <div class="service-name">Beard Sculpt &amp; Trim</div>
+            <div class="service-desc">Shape, oil, steam towel, and styling</div>
+            <div class="service-price">₦1,500</div>
+        </div>
+        <div class="service-card">
+            <div class="service-icon">💇‍♀️</div>
+            <div class="service-name">Women's Cut &amp; Style</div>
+            <div class="service-desc">Blow-dry, layers, design, and treatment</div>
+            <div class="service-price">₦3,500</div>
+        </div>
+        <div class="service-card">
+            <div class="service-icon">🪢</div>
+            <div class="service-name">Braiding &amp; Twists</div>
+            <div class="service-desc">Box braids, cornrows, protective styles</div>
+            <div class="service-price">₦8,000+</div>
+        </div>
+        <div class="service-card">
+            <div class="service-icon">👦</div>
+            <div class="service-name">Kids Haircut</div>
+            <div class="service-desc">Gentle cuts for boys &amp; girls (under 12)</div>
+            <div class="service-price">₦1,500</div>
+        </div>
+        <div class="service-card">
+            <div class="service-icon">👑</div>
+            <div class="service-name">VIP Luxury Package</div>
+            <div class="service-desc">Full grooming + facial + scalp massage + drink</div>
+            <div class="service-price">₦15,000</div>
+            <div class="service-badge">VIP</div>
+        </div>
+    </div>
+</section>
+
+<!-- ── Stats ──────────────────────────────── -->
+<section class="stats-section">
+    <div class="stats-grid">
+        <div class="stat-item">
+            <div class="stat-number" id="stat1">0</div>
+            <div class="stat-label">Happy Clients</div>
+        </div>
+        <div class="stat-item">
+            <div class="stat-number" id="stat2">0</div>
+            <div class="stat-label">Expert Stylists</div>
+        </div>
+        <div class="stat-item">
+            <div class="stat-number" id="stat3">0</div>
+            <div class="stat-label">Years Experience</div>
+        </div>
+        <div class="stat-item">
+            <div class="stat-number" id="stat4">0</div>
+            <div class="stat-label">Awards Won</div>
+        </div>
+    </div>
+</section>
+
+<!-- ── Gallery ────────────────────────────── -->
+<section id="gallery" style="background:var(--dark2);">
+    <div style="text-align:center;margin-bottom:48px;">
+        <div class="section-badge">Our Work</div>
+        <h2 class="section-title">Style <span>Gallery</span></h2>
+        <div class="divider" style="margin:18px auto;"></div>
+    </div>
+    <div class="gallery-grid">
+        <div class="gallery-item">
+            <img class="gallery-img" src="https://images.unsplash.com/photo-1585747860715-2ba37e788b70?w=800&q=80" alt="Clean fade haircut" loading="lazy">
+            <div class="gallery-overlay"><div class="gallery-label">Clean Fade</div></div>
+        </div>
+        <div class="gallery-item">
+            <img class="gallery-img" src="https://images.unsplash.com/photo-1605497788044-5a32c7078486?w=500&q=80" alt="Precision cut" loading="lazy">
+            <div class="gallery-overlay"><div class="gallery-label">Precision Cut</div></div>
+        </div>
+        <div class="gallery-item">
+            <img class="gallery-img" src="https://images.unsplash.com/photo-1599351431202-1e0f0137899a?w=500&q=80" alt="Beard sculpt" loading="lazy">
+            <div class="gallery-overlay"><div class="gallery-label">Beard Sculpt</div></div>
+        </div>
+        <div class="gallery-item">
+            <img class="gallery-img" src="https://images.unsplash.com/photo-1621605815971-fbc98d665033?w=800&q=80" alt="Modern barbershop lounge" loading="lazy">
+            <div class="gallery-overlay"><div class="gallery-label">Modern Lounge</div></div>
+        </div>
+        <div class="gallery-item">
+            <img class="gallery-img" src="https://images.unsplash.com/photo-1582095133179-bfd08e2fb6b8?w=500&q=80" alt="Braids and twists" loading="lazy">
+            <div class="gallery-overlay"><div class="gallery-label">Braids &amp; Twists</div></div>
+        </div>
+        <div class="gallery-item">
+            <img class="gallery-img" src="https://images.unsplash.com/photo-1567894340315-735d7c361db0?w=500&q=80" alt="Hair art design" loading="lazy">
+            <div class="gallery-overlay"><div class="gallery-label">Hair Art</div></div>
+        </div>
+    </div>
+</section>
+
+<!-- ── Testimonials ───────────────────────── -->
+<section id="testimonials">
+    <div style="text-align:center;margin-bottom:48px;">
+        <div class="section-badge">Client Love</div>
+        <h2 class="section-title">What Our <span>Clients Say</span></h2>
+        <div class="divider" style="margin:18px auto;"></div>
+    </div>
+    <div class="testimonials-slider">
+        <div class="testimonials-track" id="testimonialsTrack">
+            <div class="testimonial-card">
+                <div class="testimonial-content">
+                    <i class="fas fa-quote-right"></i>
+                    <p class="testimonial-text">"Best barber in Enugu! The attention to detail is unmatched. I've been coming here for 2 years and never disappointed."</p>
+                    <div class="testimonial-author"><div><h4>Chukwudi O.</h4><p>Regular Client</p></div></div>
+                </div>
+            </div>
+            <div class="testimonial-card">
+                <div class="testimonial-content">
+                    <i class="fas fa-quote-right"></i>
+                    <p class="testimonial-text">"My daughter loves her braids! Professional, clean, and very friendly staff. Highly recommend Prime Cut."</p>
+                    <div class="testimonial-author"><div><h4>Ngozi A.</h4><p>Mother of 2</p></div></div>
+                </div>
+            </div>
+            <div class="testimonial-card">
+                <div class="testimonial-content">
+                    <i class="fas fa-quote-right"></i>
+                    <p class="testimonial-text">"The VIP package is incredible. Hot towel shave, massage, and a cold drink — pure relaxation and style."</p>
+                    <div class="testimonial-author"><div><h4>Michael E.</h4><p>VIP Client</p></div></div>
+                </div>
+            </div>
+            <div class="testimonial-card">
+                <div class="testimonial-content">
+                    <i class="fas fa-quote-right"></i>
+                    <p class="testimonial-text">"Great atmosphere, skilled barbers, and reasonable prices. The fade I got was absolutely perfect!"</p>
+                    <div class="testimonial-author"><div><h4>Emeka N.</h4><p>New Client</p></div></div>
+                </div>
+            </div>
+        </div>
+        <div class="testimonial-nav">
+            <button onclick="prevTestimonial()" aria-label="Previous review"><i class="fas fa-chevron-left"></i></button>
+            <button onclick="nextTestimonial()" aria-label="Next review"><i class="fas fa-chevron-right"></i></button>
+        </div>
+    </div>
+</section>
+
+<!-- ── Booking ─────────────────────────────── -->
+<section id="booking">
+    <div class="booking-wrapper">
+        <!-- Left: info + perks -->
+        <div>
+            <div class="section-badge">Appointment</div>
+            <h2 class="section-title">Book Your <span>Session</span> Today</h2>
+            <p style="color:var(--gray);margin:20px 0;">Secure your chair. Walk in fresh, walk out sharper.</p>
+            <div class="booking-perks">
+                <div class="perk">
+                    <i class="fas fa-clock"></i>
+                    <div><strong>No Long Wait</strong><br><span style="font-size:12px;">Choose your preferred time slot</span></div>
+                </div>
+                <div class="perk">
+                    <i class="fas fa-user-check"></i>
+                    <div><strong>Pick Your Stylist</strong><br><span style="font-size:12px;">Expert barbers always available</span></div>
+                </div>
+                <div class="perk">
+                    <i class="fab fa-whatsapp" style="color:#25D366;"></i>
+                    <div><strong>WhatsApp Confirmed</strong><br><span style="font-size:12px;">We're notified the moment you book</span></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Right: booking form -->
+        <div class="booking-form">
+            <h3 style="font-family:'Playfair Display',serif;margin-bottom:20px;">✂️ Reserve a Spot</h3>
+
+            <!-- The form itself -->
+            <div id="bookForm">
+                <div class="form-group">
+                    <label for="bName">Full Name *</label>
+                    <input type="text" id="bName" placeholder="Obinna Okafor" autocomplete="name">
+                </div>
+                <div class="form-group">
+                    <label for="bPhone">Phone Number *</label>
+                    <input type="tel" id="bPhone" placeholder="08011234567" autocomplete="tel">
+                </div>
+                <div class="form-group">
+                    <label for="bService">Select Service</label>
+                    <select id="bService">
+                        <option>Men's Haircut — ₦2,500</option>
+                        <option>Hot Towel Shave — ₦1,800</option>
+                        <option>Fade + Line Up — ₦3,000</option>
+                        <option>Beard Sculpt &amp; Trim — ₦1,500</option>
+                        <option>Women's Cut &amp; Style — ₦3,500</option>
+                        <option>Braiding &amp; Twists — ₦8,000+</option>
+                        <option>Kids Haircut — ₦1,500</option>
+                        <option>VIP Luxury Package — ₦15,000</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="bDate">Preferred Date *</label>
+                    <input type="date" id="bDate">
+                </div>
+                <div class="form-group">
+                    <label for="bTime">Time Slot</label>
+                    <select id="bTime">
+                        <option>09:00 AM</option>
+                        <option>10:00 AM</option>
+                        <option>11:00 AM</option>
+                        <option>12:00 PM</option>
+                        <option>01:00 PM</option>
+                        <option>02:00 PM</option>
+                        <option>03:00 PM</option>
+                        <option>04:00 PM</option>
+                        <option>05:00 PM</option>
+                        <option>06:00 PM</option>
+                    </select>
+                </div>
+                <button class="btn-book" onclick="submitBooking()">
+                    Confirm Booking <i class="fas fa-arrow-right"></i>
+                </button>
+            </div>
+
+            <!-- Success panel — dynamically populated by app.js -->
+            <div class="form-success" id="formSuccess" style="display:none;"></div>
+        </div>
+    </div>
+</section>
+
+<!-- ── Newsletter ──────────────────────────── -->
+<section class="newsletter-section">
+    <div class="section-badge">Stay Updated</div>
+    <h2 class="section-title">Subscribe to <span>Our Newsletter</span></h2>
+    <p style="color:var(--gray);max-width:600px;margin:20px auto;">Get exclusive offers, style tips, and early access to promotions.</p>
+    <div class="newsletter-form">
+        <input type="email" id="newsletterEmail" placeholder="Enter your email address" autocomplete="email">
+        <button onclick="subscribeNewsletter()">Subscribe <i class="fas fa-paper-plane"></i></button>
+    </div>
+</section>
+
+<!-- ── Contact ────────────────────────────── -->
+<section id="contact" style="background:var(--dark2);">
+    <div class="contact-grid">
+        <div>
+            <div class="section-badge">Visit Us</div>
+            <h2 class="section-title">Get in <span>Touch</span></h2>
+            <div class="divider"></div>
+            <div class="contact-item">
+                <i class="fas fa-map-marker-alt"></i>
+                <div><strong>Address</strong><br><span>1 Day Street, Enugu, Nigeria</span></div>
+            </div>
+            <div class="contact-item">
+                <i class="fab fa-whatsapp" style="color:#25D366;"></i>
+                <div>
+                    <strong>Call / WhatsApp</strong><br>
+                    <a href="https://wa.me/2348071607769" target="_blank" rel="noopener noreferrer"
+                       style="color:var(--gold);text-decoration:none;">+234 807 160 7769</a>
+                </div>
+            </div>
+            <div class="contact-item">
+                <i class="fas fa-envelope"></i>
+                <div><strong>Email</strong><br><span>hello@primecutsalon.com</span></div>
+            </div>
+            <div class="contact-item">
+                <i class="fas fa-clock"></i>
+                <div>
+                    <strong>Opening Hours</strong><br>
+                    <span>
+                        <b>Mon – Thu:</b> 8am – 8pm<br>
+                        <b>Fri – Sat:</b> 8am – 9pm<br>
+                        <b>Sunday:</b> 9am – 6pm
+                    </span>
+                </div>
+            </div>
+        </div>
+        <div class="msg-form">
+            <h4 style="margin-bottom:20px;">Send a Message</h4>
+            <div class="form-group">
+                <label for="cName">Name</label>
+                <input type="text" id="cName" placeholder="Your name" autocomplete="name">
+            </div>
+            <div class="form-group">
+                <label for="cEmail">Email</label>
+                <input type="email" id="cEmail" placeholder="Your email" autocomplete="email">
+            </div>
+            <div class="form-group">
+                <label for="cMsg">Message</label>
+                <textarea id="cMsg" rows="4" placeholder="How can we help you?"></textarea>
+            </div>
+            <button class="btn-book" onclick="sendMessage()">
+                <i class="fab fa-whatsapp"></i> Send via WhatsApp
+            </button>
+        </div>
+    </div>
+</section>
+
+<!-- ── Footer ─────────────────────────────── -->
+<footer>
+    <div class="footer-grid">
+        <div>
+            <div class="logo-icon" style="margin-bottom:12px;"><i class="fas fa-cut"></i></div>
+            <p style="color:var(--gray);font-size:13px;margin-bottom:15px;">Prime Cut Barbershop &amp; Salon — where style meets excellence. Serving Enugu with pride and precision.</p>
+            <div>
+                <a href="#" class="social-link" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                <a href="#" class="social-link" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                <a href="https://wa.me/2348071607769" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+                <a href="#" class="social-link" aria-label="Twitter/X"><i class="fab fa-twitter"></i></a>
+            </div>
+        </div>
+        <div>
+            <h4 style="color:var(--gold);margin-bottom:20px;">Quick Links</h4>
+            <ul>
+                <li><a href="#about">About Us</a></li>
+                <li><a href="#services">Our Services</a></li>
+                <li><a href="#gallery">Gallery</a></li>
+                <li><a href="#booking">Book Now</a></li>
+            </ul>
+        </div>
+        <div>
+            <h4 style="color:var(--gold);margin-bottom:20px;">Services</h4>
+            <ul>
+                <li><a href="#services">Men's Haircut</a></li>
+                <li><a href="#services">Women's Styling</a></li>
+                <li><a href="#services">Kids Cut</a></li>
+                <li><a href="#services">VIP Package</a></li>
+            </ul>
+        </div>
+        <div>
+            <h4 style="color:var(--gold);margin-bottom:20px;">Opening Hours</h4>
+            <ul>
+                <li style="color:var(--gray);">Mon – Thu: 8am – 8pm</li>
+                <li style="color:var(--gray);">Fri – Sat: 8am – 9pm</li>
+                <li style="color:var(--gray);">Sunday: 9am – 6pm</li>
+            </ul>
+        </div>
+    </div>
+    <div style="text-align:center;border-top:1px solid rgba(255,255,255,0.05);padding-top:24px;margin-top:24px;">
+        <p style="color:var(--gray);font-size:12px;">© 2025 Prime Cut Barbershop &amp; Salon — Enugu, Nigeria. All rights reserved.</p>
+    </div>
+</footer>
+
+<!-- ── Floating UI ─────────────────────────── -->
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+<button class="back-to-top" id="backToTop" onclick="scrollToTop()" aria-label="Back to top">
+    <i class="fas fa-arrow-up"></i>
+</button>
+
+<!-- ── Scripts ─────────────────────────────── -->
+<!-- Single script file. No backend. No duplicate handlers. -->
+<script src="./static/js/app.js"></script>
+
+<!-- Schema.org structured data -->
+<script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "HairSalon",
+    "name": "Prime Cut Barbershop & Salon",
+    "description": "Enugu's premier barbershop for men, women and children. Expert haircuts, fades, beard styling, braiding and luxury grooming packages.",
+    "url": "https://www.primecutsalon.com",
+    "telephone": "+234-807-160-7769",
+    "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "1 Day Street",
+        "addressLocality": "Enugu",
+        "addressRegion": "Enugu State",
+        "addressCountry": "NG"
+    },
+    "openingHoursSpecification": [
+        {"@type":"OpeningHoursSpecification","dayOfWeek":["Monday","Tuesday","Wednesday","Thursday"],"opens":"08:00","closes":"20:00"},
+        {"@type":"OpeningHoursSpecification","dayOfWeek":["Friday","Saturday"],"opens":"08:00","closes":"21:00"},
+        {"@type":"OpeningHoursSpecification","dayOfWeek":"Sunday","opens":"09:00","closes":"18:00"}
+    ]
+}
+</script>
+</body>
+</html>
