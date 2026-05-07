@@ -1,0 +1,108 @@
+{
+  "name": "Prime Cut Barbershop & Salon",
+  "short_name": "Prime Cut",
+  "description": "Enugu's premier barbershop for men, women and children. Expert haircuts, fades, beard styling, braiding and luxury grooming packages.",
+  "start_url": "/",
+  "display": "standalone",
+  "theme_color": "#C9A84C",
+  "background_color": "#0A0A0A",
+  "orientation": "portrait",
+  "scope": "/",
+  "categories": ["lifestyle", "beauty", "shopping"],
+  "lang": "en",
+  "dir": "ltr",
+  "icons": [
+    {
+      "src": "/static/icons/icon-72x72.png",
+      "sizes": "72x72",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/static/icons/icon-96x96.png",
+      "sizes": "96x96",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/static/icons/icon-128x128.png",
+      "sizes": "128x128",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/static/icons/icon-144x144.png",
+      "sizes": "144x144",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/static/icons/icon-152x152.png",
+      "sizes": "152x152",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/static/icons/icon-192x192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/static/icons/icon-384x384.png",
+      "sizes": "384x384",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/static/icons/icon-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ],
+  "screenshots": [
+    {
+      "src": "/static/screenshots/home.png",
+      "sizes": "1080x1920",
+      "type": "image/png",
+      "platform": "android",
+      "label": "Home Screen"
+    },
+    {
+      "src": "/static/screenshots/booking.png",
+      "sizes": "1080x1920",
+      "type": "image/png",
+      "platform": "android",
+      "label": "Booking Page"
+    }
+  ],
+  "shortcuts": [
+    {
+      "name": "Book Appointment",
+      "short_name": "Book",
+      "description": "Quickly book your next haircut",
+      "url": "/#booking",
+      "icons": [
+        {
+          "src": "/static/icons/icon-96x96.png",
+          "sizes": "96x96"
+        }
+      ]
+    },
+    {
+      "name": "Call Us",
+      "short_name": "Call",
+      "description": "Call the salon directly",
+      "url": "/#contact"
+    },
+    {
+      "name": "View Services",
+      "short_name": "Services",
+      "description": "See all our grooming services",
+      "url": "/#services"
+    }
+  ],
+  "prefer_related_applications": false,
+  "related_applications": []
+}

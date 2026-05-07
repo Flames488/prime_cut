@@ -450,3 +450,240 @@ document.querySelectorAll(
     el.style.transition = '0.5s ease';
     animationObserver.observe(el);
 });
+
+
+// ========== PWA Registration and Installation ==========
+
+// Register Service Worker
+if ('serviceWorker' in navigator) {
+    window.addEventListener('load', () => {
+        navigator.serviceWorker.register('/sw.js')
+            .then((registration) => {
+                console.log('ServiceWorker registered successfully: ', registration.scope);
+                
+                // Check for updates
+                registration.addEventListener('updatefound', () => {
+                    const newWorker = registration.installing;
+                    console.log('Service Worker update found!');
+                    newWorker.addEventListener('statechange', () => {
+                        if (newWorker.state === 'installed' && navigator.serviceWorker.controller) {
+                            showToast('New version available! Refresh to update.');
+                        }
+                    });
+                });
+            })
+            .catch((error) => {
+                console.log('ServiceWorker registration failed: ', error);
+            });
+        
+        // Handle controller changes for updates
+        let refreshing = false;
+        navigator.serviceWorker.addEventListener('controllerchange', () => {
+            if (!refreshing) {
+                refreshing = true;
+                window.location.reload();
+            }
+        });
+    });
+}
+
+// PWA Installation Prompt
+let deferredPrompt;
+const installBtn = document.createElement('button');
+installBtn.id = 'installPWA';
+installBtn.innerHTML = '<i class="fas fa-download"></i> Install App';
+installBtn.className = 'btn-primary';
+installBtn.style.position = 'fixed';
+installBtn.style.bottom = '100px';
+installBtn.style.right = '20px';
+installBtn.style.zIndex = '1000';
+installBtn.style.display = 'none';
+installBtn.style.padding = '12px 20px';
+installBtn.style.fontSize = '14px';
+installBtn.style.boxShadow = '0 4px 15px rgba(0,0,0,0.3)';
+document.body.appendChild(installBtn);
+
+window.addEventListener('beforeinstallprompt', (e) => {
+    // Prevent Chrome 67 and earlier from automatically showing the prompt
+    e.preventDefault();
+    // Stash the event so it can be triggered later
+    deferredPrompt = e;
+    // Show the install button
+    installBtn.style.display = 'flex';
+    installBtn.style.alignItems = 'center';
+    installBtn.style.gap = '8px';
+});
+
+installBtn.addEventListener('click', async () => {
+    // Hide the install button
+    installBtn.style.display = 'none';
+    // Show the install prompt
+    if (deferredPrompt) {
+        deferredPrompt.prompt();
+        // Wait for the user to respond to the prompt
+        const { outcome } = await deferredPrompt.userChoice;
+        console.log(`User response to the install prompt: ${outcome}`);
+        // Clear the deferred prompt variable
+        deferredPrompt = null;
+    }
+});
+
+// Track PWA installation
+window.addEventListener('appinstalled', (evt) => {
+    console.log('Prime Cut app was installed successfully!');
+    showToast('Thanks for installing Prime Cut! 🎉');
+    // You can send analytics here
+    if (typeof gtag !== 'undefined') {
+        gtag('event', 'pwa_installed', {
+            'event_category': 'engagement',
+            'event_label': 'PWA Installation'
+        });
+    }
+});
+
+// Detect if app is running in standalone mode (PWA mode)
+function isRunningInPWA() {
+    return (window.matchMedia('(display-mode: standalone)').matches) ||
+           (window.navigator.standalone === true) ||
+           (document.referrer.includes('android-app://'));
+}
+
+if (isRunningInPWA()) {
+    console.log('Prime Cut is running as an installed PWA');
+    // Optionally, hide the install button when running in PWA mode
+    installBtn.style.display = 'none';
+}
+
+// Enable background sync for offline bookings
+async function registerBackgroundSync() {
+    if ('serviceWorker' in navigator && 'SyncManager' in window) {
+        const registration = await navigator.serviceWorker.ready;
+        try {
+            await registration.sync.register('sync-bookings');
+            console.log('Background sync registered');
+        } catch (error) {
+            console.log('Background sync registration failed:', error);
+        }
+    }
+}
+
+// Modify your submitBooking function to handle offline bookings
+const originalSubmitBooking = window.submitBooking;
+window.submitBooking = function() {
+    if (!navigator.onLine) {
+        // Save booking for later sync
+        const bookingData = {
+            name: document.getElementById('bName').value,
+            phone: document.getElementById('bPhone').value,
+            service: document.getElementById('bService').value,
+            date: document.getElementById('bDate').value,
+            time: document.getElementById('bTime').value,
+            timestamp: new Date().toISOString()
+        };
+        
+        // Store offline booking
+        localStorage.setItem('offline_booking_' + Date.now(), JSON.stringify(bookingData));
+        
+        // Register background sync
+        registerBackgroundSync();
+        
+        showToast('You are offline. Your booking will be sent when you reconnect.');
+        return;
+    }
+    
+    // Call original function if online
+    if (originalSubmitBooking) {
+        originalSubmitBooking();
+    }
+};
+
+// Check for offline bookings when coming back online
+window.addEventListener('online', () => {
+    showToast('Back online! Syncing pending bookings...');
+    syncOfflineBookings();
+});
+
+function syncOfflineBookings() {
+    const offlineBookings = [];
+    for (let i = 0; i < localStorage.length; i++) {
+        const key = localStorage.key(i);
+        if (key && key.startsWith('offline_booking_')) {
+            offlineBookings.push(JSON.parse(localStorage.getItem(key)));
+        }
+    }
+    
+    if (offlineBookings.length > 0) {
+        console.log(`Syncing ${offlineBookings.length} offline bookings`);
+        // Process each offline booking
+        offlineBookings.forEach((booking, index) => {
+            // Reconstruct the booking submission
+            const message = `📅 *New Booking from Offline Sync*%0A%0A` +
+                `*Name:* ${booking.name}%0A` +
+                `*Phone:* ${booking.phone}%0A` +
+                `*Service:* ${booking.service}%0A` +
+                `*Date:* ${booking.date}%0A` +
+                `*Time:* ${booking.time}%0A` +
+                `*Synced at:* ${new Date().toLocaleString()}`;
+            
+            const whatsappUrl = `https://wa.me/${OWNER_WHATSAPP}?text=${message}`;
+            window.open(whatsappUrl, '_blank');
+            
+            // Remove the offline booking
+            const key = `offline_booking_${Object.keys(localStorage).find(k => k.includes(String(index)))}`;
+            if (key) localStorage.removeItem(key);
+        });
+        
+        showToast(`${offlineBookings.length} booking(s) synced successfully!`);
+    }
+}
+
+// Cache images for offline viewing
+async function cacheImages() {
+    const images = document.querySelectorAll('img');
+    const imageUrls = Array.from(images).map(img => img.src).filter(src => src.startsWith('http'));
+    
+    if ('caches' in window) {
+        const cache = await caches.open('prime-cut-images');
+        await cache.addAll(imageUrls);
+        console.log('Images cached for offline viewing');
+    }
+}
+
+// Precache images when page loads
+if ('caches' in window) {
+    window.addEventListener('load', cacheImages);
+}
+
+// Handle connectivity status
+function updateConnectivityStatus() {
+    const statusIndicator = document.createElement('div');
+    statusIndicator.id = 'connectionStatus';
+    statusIndicator.style.position = 'fixed';
+    statusIndicator.style.top = '70px';
+    statusIndicator.style.right = '20px';
+    statusIndicator.style.padding = '8px 12px';
+    statusIndicator.style.borderRadius = '20px';
+    statusIndicator.style.fontSize = '12px';
+    statusIndicator.style.fontWeight = '600';
+    statusIndicator.style.zIndex = '1000';
+    statusIndicator.style.display = 'none';
+    document.body.appendChild(statusIndicator);
+    
+    function updateStatus() {
+        if (!navigator.onLine) {
+            statusIndicator.style.display = 'block';
+            statusIndicator.style.backgroundColor = '#E63946';
+            statusIndicator.style.color = 'white';
+            statusIndicator.innerHTML = '<i class="fas fa-wifi"></i> Offline Mode';
+        } else {
+            statusIndicator.style.display = 'none';
+        }
+    }
+    
+    window.addEventListener('online', updateStatus);
+    window.addEventListener('offline', updateStatus);
+    updateStatus();
+}
+
+// Initialize connectivity monitoring
+updateConnectivityStatus();

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Prime Cut - Loading...</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background: #0A0A0A;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+        }
+        .splash {
+            text-align: center;
+            animation: fadeIn 0.5s ease-in;
+        }
+        .logo {
+            width: 120px;
+            height: 120px;
+            margin-bottom: 20px;
+            animation: pulse 1.5s infinite;
+        }
+        .title {
+            color: #C9A84C;
+            font-size: 24px;
+            font-weight: 600;
+            letter-spacing: 2px;
+            margin-bottom: 10px;
+        }
+        .subtitle {
+            color: #AAAAAA;
+            font-size: 12px;
+            letter-spacing: 1px;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+        }
+    </style>
+    <meta http-equiv="refresh" content="2;url=/" />
+</head>
+<body>
+    <div class="splash">
+        <img src="/static/prime_cut_logo.png" alt="Prime Cut" class="logo">
+        <div class="title">PRIME CUT</div>
+        <div class="subtitle">Enugu's Finest Grooming</div>
+    </div>
+</body>
+</html>

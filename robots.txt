@@ -1,3 +1,15 @@
 User-agent: *
 Allow: /
 Sitemap: https://www.primecutsalon.net/sitemap.xml
+
+User-agent: *
+Allow: /
+
+# Allow service worker and manifest
+Allow: /sw.js
+Allow: /manifest.json
+
+# Cache rules for PWA
+Cache-Control: max-age=31536000
+
+Sitemap: https://www.primecutsalon.net/sitemap.xml
